@@ -1,0 +1,63 @@
+@startuml
+class databricks.koalas {
+    get_dummies(data, columns=None)
+}
+
+class databricks.koalas.Dataframe {
+    columns
+}
+
+class pandas.Index {
+    str
+}
+
+class pandas.core.strings.accessor.StringMethods {
+    replace(pat, repl, regex=None)
+}
+
+class databricks.feature_store.FeatureStoreClient {
+    __init__()
+    create_feature_table(name, keys, schema=None, description=None)
+    write_table(name, df, mode)
+    read_table(name)
+}
+
+class mlflow {
+    search_runs(experiment_id)
+    register_model(model_uri, name)
+}
+
+class pandas.Dataframe {
+    loc
+    sort_values(by, ascending=True)
+}
+
+class mlflow.tracking.MlflowClient {
+    __init__()
+    update_registered_model(name, description=None)
+    update_model_version(name, version, description=None)
+    get_latest_versions(name)
+    transition_model_version_stage(name, version, stage, archive_existing_versions=False)
+}
+
+class mlflow.pyfunc {
+    spark_udf(spark, model_uri)
+}
+
+class mlflow.utils.rest_utils {
+    http_request(host_creds, endpoint, method, params=None, json=None)
+}
+
+class pyspark.sql.DataFrameWriter {
+    mode(saveMode)
+    saveAsTable(name)
+}
+
+class databricks.automl {
+    regress(dataset, *, target_col, primary_metric, timeout_minutes, max_trials)
+}
+
+class databricks.automl.AutoMLSummary {
+    best_trial.run_id
+}
+@enduml
